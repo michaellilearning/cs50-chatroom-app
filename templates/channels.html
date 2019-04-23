@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Please select or create channel:
+{% endblock %}
+
+{% block body %}
+        <h1 class="text-center">Welcome to Michael's Chatroom Web App!</h1>
+        <p class="text-center">Your display name is: {{ name }} ></p>
+        <hr />
+        <div class="container">
+  <div class="row">
+    <div class="col" id="channels">
+        <h4>Channels:</h4>
+        <div> 
+            <ul>
+            {% for channel in channels %}
+                <li><a href="chatroom/{{channel}}">{{ channel }}</a></li>                
+            {% endfor %}
+            </ul>
+        </div>  
+        <div>
+            <form action="{{ url_for('index') }}" method="post">
+                <input class="form-control" type="text" placeholder="Create channel..." name="channel">
+                <span><button class="btn btn-primary">Create</button></span>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

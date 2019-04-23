@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Please enter a display name
+{% endblock %}
+
+{% block body %}
+        <h1>Welcome to Michael's Chatroom Web App!</h1>
+        <hr />
+        <div class="login-form">
+            <form action="{{ url_for('index') }}" method="post">
+                <h2 class="text-center">Plese enter a display name:</h2>
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Display name" name="name">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">Select Channel</button>
+                </div>
+            </form>
+        </div>
+{% endblock %}

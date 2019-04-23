@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <script typp="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'chatroom.js') }}"></script>        
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </head>
+    <body>
+      <div class="ui container">
+        <h1 class="ui center aligned header">Welcome to Michael's Chatroom Web App!</h1>
+        <div class="ui sub header center aligned"><span id="current_user">{{ name }}</span>, your are on channel: <span id="current_channel">{{ channel }}</span></div>
+      </div>
+      <hr />
+  <div class='ui container'>
+    <div class='ui grid '>
+      <div class="four wide column" id="channels">
+        <h4>Channels List:</h4>
+        <div style="background: lightgray; height: 350px; overflow-y: scroll;"> 
+            <ul id="channelslist">
+            {% for channel in channels %}
+                <li><a href="chatroom/{{channel}}">{{ channel }}</a></li>                
+            {% endfor %}
+            </ul>
+        </div>  
+      </div>
+      <div class="twelve wide column">
+        <h4 class="ui header">Current Channel: {{ channel }}</h4>
+      <div id="scroll" style="overflow-y: scroll; height:310px; background: lightblue;">
+        <ul>
+          {% for message in channels[channel] %}
+          <li> {{ message }} </li>
+          {% endfor %}
+        </ul>
+        <ul id="chatroom">
+        </ul>
+    </div>
+    <div class="ui action input" style="margin-top: 5px;" >
+      <input style="width: 400px; " type="text" placeholder="Enter text and press Enter to send chat..." id="message" >
+      <button class="ui blue button" data-send="message" id="sendmessage">Send</button>
+    </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
