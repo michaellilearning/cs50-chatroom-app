@@ -62,3 +62,7 @@ def vote(data):
         channels[channel].pop(0)
         channels[channel].append(message)
     emit("announce message", {'channel': channel, 'user': user, 'message': message}, broadcast=True)
+
+
+if __name__ == "__main__":
+    app.run()
