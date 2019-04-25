@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     room.scrollTop = 9999999;
 
     // Connect to websocket
-    var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+    // var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+    var socket = io.connect('http:' + '//' + document.domain + ':' + location.port);
 
     // When connected, configure buttons
     socket.on('connect', () => {
