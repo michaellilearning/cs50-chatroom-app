@@ -66,3 +66,4 @@ def vote(data):
 
 if __name__ == "__main__":
     socketio.run(app)
+    print("Running through socketio.run")
